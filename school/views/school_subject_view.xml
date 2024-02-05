@@ -1,0 +1,46 @@
+<odoo>
+    <data>
+        <!-- Vista de formulario para school.subject -->
+        <record id="view_school_subject_form" model="ir.ui.view">
+            <field name="name">school.subject.form</field>
+            <field name="model">school.subject</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <field name="name"/>
+                        <field name="credits"/>
+                        <field name="max_students"/>
+                        <field name="active"/>
+                        <field name="teacher_id" widget="many2one_tags"/>
+                        <field name="student_ids" widget="many2many_tags"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <!-- Vista de árbol para school.subject -->
+        <record id="view_school_subject_tree" model="ir.ui.view">
+            <field name="name">school.subject.tree</field>
+            <field name="model">school.subject</field>
+            <field name="arch" type="xml">
+                <tree string="Subjects">
+                    <field name="name"/>
+                    <field name="credits"/>
+                    <field name="max_students"/>
+                    <field name="active"/>
+                    <field name="teacher_id" widget="many2one_tags"/>
+                    <field name="student_ids" widget="many2many_tags"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Acción de ventana para school.subject -->
+        <record id="action_school_subject" model="ir.actions.act_window">
+            <field name="name">Subjects</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">school.subject</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="school.view_school_subject_tree"/>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,40 @@
+<odoo>
+    <data>
+        <!-- Vista de formulario para school.teacher -->
+        <record id="view_school_teacher_form" model="ir.ui.view">
+            <field name="name">school.teacher.form</field>
+            <field name="model">school.teacher</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <field name="name"/>
+                        <field name="profile"/>
+                        <field name="subject_ids" widget="one2many_tags"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <!-- Vista de árbol para school.teacher -->
+        <record id="view_school_teacher_tree" model="ir.ui.view">
+            <field name="name">school.teacher.tree</field>
+            <field name="model">school.teacher</field>
+            <field name="arch" type="xml">
+                <tree string="Teachers">
+                    <field name="name"/>
+                    <field name="profile"/>
+                    <field name="subject_ids" widget="one2many_tags"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Acción de ventana para school.teacher -->
+        <record id="action_school_teacher" model="ir.actions.act_window">
+            <field name="name">Teachers</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">school.teacher</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="school.view_school_teacher_tree"/>
+        </record>
+    </data>
+</odoo>
