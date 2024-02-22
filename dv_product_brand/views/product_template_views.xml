@@ -1,0 +1,17 @@
+<odoo>
+    <data>
+    <record id="product_template_form_view" model="ir.ui.view">
+        <field name="name">product.template.view.form</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view"/>
+        <field name="arch" type="xml">
+             <xpath expr="//field[@name='categ_id']" position="after">
+                <field name="size" />
+                <field name="brand" widget="many2one"/>
+                <button name="raise_error" string="Generar Error" type="object" class="btn-danger"/>
+                    
+            </xpath>
+        </field>
+    </record>
+   </data>
+</odoo>
